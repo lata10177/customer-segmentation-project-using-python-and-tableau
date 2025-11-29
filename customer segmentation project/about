@@ -26,7 +26,7 @@ import pandas as pd
 plt.figure(figsize=(10,5)) 
 sns.barplot(x=top_products.values, y=top_products.index, palette='viridis')
 .barplot() takes values (quantities) and labels (product names)
-.palette='viridis' gives aesthetic colors
+.palette='viridis' for colors
 plt.figure(figsize=(8,5)) 
 sns.histplot(customer_summary['TotalSpend'], bins=50, kde=True)
 .bins=50 → more detailed distribution
