@@ -1,8 +1,9 @@
+# using rfm and k means
 import pandas as pd
 from sklearn.preprocessing import StandardScaler
 from sklearn.cluster import KMeans
 
-# Step 1️⃣: Load Data and Select Country
+# Load Data and Select Country
 file_path = "cleaned_data.csv"   # <-- Using your actual file name
 df = pd.read_csv(file_path, encoding='latin1', on_bad_lines='skip', engine='python')
 
@@ -24,7 +25,7 @@ if data_country.empty:
 print(f"\n✅ Selected country: {country_choice.title()} — {len(data_country)} transactions loaded.")
 print(f"Available columns: {list(data_country.columns)}")
 
-# Step 2️⃣: Prepare Customer-Level RFM Metrics
+# Prepare Customer-Level RFM Metrics
 data_country['TotalPrice'] = data_country['Quantity'] * data_country['UnitPrice']
 
 customer_data = data_country.groupby('CustomerID').agg({
@@ -49,12 +50,12 @@ if len(customer_data) < 2:
     print("⚠️ Not enough data for clustering. Try a country with more transactions.")
     exit()
 
-# Step 3️⃣: Scaling
+# Scaling
 scaler = StandardScaler()
 scaled_data = scaler.fit_transform(customer_data)
 scaled_df = pd.DataFrame(scaled_data, columns=customer_data.columns, index=customer_data.index)
 
-# Step 4️⃣: K-Means Clustering
+# K-Means Clustering
 num_clusters = min(4, len(customer_data))  # avoid more clusters than samples
 kmeans = KMeans(n_clusters=num_clusters, random_state=42)
 customer_data['Cluster'] = kmeans.fit_predict(scaled_df)
@@ -62,11 +63,12 @@ customer_data['Cluster'] = kmeans.fit_predict(scaled_df)
 print("\n✅ Clustering complete!")
 print(customer_data.groupby('Cluster')[['Frequency', 'Monetary', 'Recency']].mean())
 
-# Step 5️⃣: Save results
+# Save results
 output_file = f"segments_{country_choice}.csv"
 customer_data.to_csv(output_file)
 print(f"💾 Saved clustered data to {output_file}")
 
-# NEW: Save universal customer segment file
+# save customer segment file
 customer_data.to_csv("customer_segments.csv", index=False)
 print("💾 Saved master file: customer_segments.csv")
+
