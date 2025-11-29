@@ -178,7 +178,7 @@ Business Insights: Text card summarizing the behavioral meaning of each cluster.
 Purpose:
 Enable marketing teams and managers to target customer groups with tailored retention, reactivation, and loyalty strategies.
 
-<img width="1920" height="997" alt="Screenshot (32)" src="https://github.com/user-attachments/assets/4d8972ff-d2d9-406e-8fad-e269bf23f702" />
+<img width="1920" height="997" alt="customer segmantation" src="https://github.com/user-attachments/assets/e4168c8c-76b8-48c7-bcbf-f11f4432562f" />
 
 **Dashboard 2 — Market Basket Analysis**
 Title: Market Basket Dashboard
@@ -199,5 +199,4 @@ Insights Section: Summarizes most actionable product bundling and cross-selling 
 Purpose:
 Help merchandising, pricing, and e-commerce teams improve product bundling, placement, promotions, and targeted recommendations.
 
-<img width="1920" height="1003" alt="Screenshot (34)" src="https://github.com/user-attachments/assets/b504f206-a831-46f5-b378-c2414987d5e3" />
-
+<img width="1920" height="1003" alt="market basket analysis" src="https://github.com/user-attachments/assets/d5980819-3cc7-4224-b9e0-0d981ad2405a" />
