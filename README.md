@@ -157,6 +157,10 @@ This combined visualization provides a complete business overview of customer be
 
 It uses powerful Python libraries like pandas, seaborn, sklearn, mlxtend, and networkx to deliver actionable business insights on customer behavior, product performance, and sales trends.
 
+
+# **📘 Project Summary – Retail Customer & Product Insights Using tableau**
+
+
 # **tableau dashboard**
 **Dashboard 1 — Customer Segmentation**
 
