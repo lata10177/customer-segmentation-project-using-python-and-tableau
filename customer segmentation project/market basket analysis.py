@@ -1,4 +1,4 @@
-# 🧺 FAST Market Basket Analysis (Optimized)
+# Market Basket Analysis
 
 import pandas as pd
 from mlxtend.frequent_patterns import fpgrowth, association_rules
@@ -23,12 +23,12 @@ print(f"✅ Loaded {len(basket_data)} rows for {country_choice}")
 
 # SUPER OPTIMIZATION: FILTER RARE ITEMS + LIMIT TRANSACTIONS
 
-# Keep only items purchased >= 20 times (prevents huge matrix)
+# Keep only items purchased >= 20 times 
 item_counts = basket_data['Description'].value_counts()
 popular_items = item_counts[item_counts >= 20].index
 basket_data = basket_data[basket_data['Description'].isin(popular_items)]
 
-# Limit to first 5,000 invoices (fastest approach)
+# Limit to first 5,000 invoices 
 basket_data = basket_data[basket_data['InvoiceNo'].isin(
     basket_data['InvoiceNo'].unique()[:5000]
 )]
@@ -59,7 +59,7 @@ if frequent_items.empty:
     print("⚠️ No frequent itemsets found.")
     exit()
 
-print(f"✨ Found {len(frequent_items)} frequent itemsets.")
+print(f" Found {len(frequent_items)} frequent itemsets.")
 
 # Association Rules
 rules = association_rules(frequent_items, metric="lift", min_threshold=1)
@@ -77,3 +77,4 @@ print("💾 Saved → association_rules.csv")
 
 print("\nTOP 5 RULES:")
 print(rules[['antecedents','consequents','support','confidence','lift']].head())
+
